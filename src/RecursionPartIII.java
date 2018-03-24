@@ -9,9 +9,9 @@ public class RecursionPartIII {
     public static void pattern(int x, int y)
     {
 	if (trackX == -1) trackX = x;
-	System.out.println(line(x));
-	if (x != y) {
-	    if (trackX == x && reverse) return;
+	if (trackX <= x) System.out.println(line(x));
+	if (trackX >= x && reverse) return;
+	if (x < y) {
 	    if (!reverse) pattern(x+1,y);
 	    else pattern(x-1,y);
 	} else {
@@ -30,25 +30,23 @@ public class RecursionPartIII {
    
     
     public static void level(String title, int levels) {
+	if (levels < 1) return;
 	if (defaultLevel == 0) defaultLevel = levels;
 	for (int i = 1; i<=9; i++) {
 	    str[levels] = (char) (i + 48);
 	    if (levels == 1) {
 		String result = title;
 		for (int j = defaultLevel; j>=1; j--) {
-		    result = result + str[j] + ".";
+		    result += str[j] + ".";
 		}
 		System.out.println(result);
-	    } else {
-		
-		level(title, levels - 1);
-	    }
+	    } else level(title, levels - 1);
 	}
     }
   
     public static void main(String[] args) {
-	pattern(3,5);
-	level("Title",3);
+	pattern(1,10);
+	level("Title",1);
     }
     
 }
