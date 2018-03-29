@@ -116,7 +116,40 @@ public class LinkedSequence<T> extends java.lang.Object implements java.lang.Clo
 	}
 	public void removeCurrent() throws java.lang.IllegalStateException{
 		if(isCurrent()) {
-			
+			if(current.getNode() != null) {
+				if (head == current) {
+					Node<T> tmp = head;
+					head = head.getNode();
+					current = current.getNode();
+					//Deallocate object
+					tmp.setNode(null);
+					tmp = null;
+				}else {
+					Node<T> tmp = head;
+					while(tmp != null) {
+						if(tmp.getNode() == current) {
+							//Set the previous node to point at the next node of the current
+							tmp.setNode(current.getNode());
+							//Let current point to another node
+							current = current.getNode();
+							break;
+						}
+						tmp = tmp.getNode();
+					}
+				}
+			}else {
+				Node<T> tmp = head;
+				while(tmp != null) {
+					if(tmp.getNode() == current) {
+						//Unlink to remove
+						tmp.setNode(null);
+						//Deallocate current pointer
+						current = null;
+						break;
+					}
+					tmp = tmp.getNode();
+				}
+			}
 		}else {
 			throw new java.lang.IllegalStateException("No current node available");
 		}
