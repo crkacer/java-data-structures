@@ -1,12 +1,12 @@
 
 public class LinkedSequenceDriver {
-
+	
 	public static void main(String[] args) {
 		System.out.println("Welcome to test driver");
 		System.out.println("-------------------------");
 		System.out.println("Attempting to create LinkedSequence object of type String");
-		System.out.println("-------------------------");
 		LinkedSequence<String> seq1 = new LinkedSequence<String>();
+		System.out.println("-------------------------");
 		System.out.println("LinkedSequence object created");
 		System.out.println("-------------------------");
 		System.out.println("Calling addAfter with foo string ");
@@ -31,30 +31,25 @@ public class LinkedSequenceDriver {
 		System.out.println("Add Success");
 		System.out.println("-------------------------");
 		System.out.println("Attempting to add a Sequence 3 (seq3) which is null");
-		System.out.println("-------------------------");
+		
 		LinkedSequence<String> seq3 = new LinkedSequence<String>();
 		System.out.println("Sequence 3 created");
-		System.out.println("-------------------------");
 		System.out.println("Attempting to call function addAll");
 		try {
 			seq1.addAll(seq3);
 		}catch(Exception e) {
 			System.out.println("Oops it failed");
-			System.out.println("The error is" + e.getMessage());
+			System.out.println("The error is: " + e.getMessage());
 		}
 		System.out.println("-------------------------");
 		System.out.println("Testing advance method");
-		System.out.println("-------------------------");
 		System.out.println("This is the seq1");
 		System.out.println(seq1);
 		System.out.println("This is the current element of seq1");
 		System.out.println(seq1.getCurrent());
-		System.out.println("-------------------------");
 		System.out.println("Attempting to call advance method");
 		seq1.advance();
-		System.out.println("-------------------------");
 		System.out.println("Success");
-		System.out.println("-------------------------");
 		System.out.println("This is the current element of seq1");
 		System.out.println(seq1.getCurrent());
 		System.out.println("-------------------------");
@@ -64,7 +59,7 @@ public class LinkedSequenceDriver {
 			seq3.advance();
 		}catch(Exception e) {
 			System.out.println("Oops it failed");
-			System.out.println("The error is " + e.getMessage());
+			System.out.println("The error is: " + e.getMessage());
 		}
 		System.out.println("-------------------------");
 		System.out.println("Advance will take the current node to go out of bound if there is nothing there to advance");
@@ -78,7 +73,7 @@ public class LinkedSequenceDriver {
 		}
 		catch(Exception e) {
 			System.out.println("Oops it failed");
-			System.out.println("The error is" + e.getMessage());
+			System.out.println("The error is: " + e.getMessage());
 		}
 		System.out.println("-------------------------");
 		System.out.println("Let's reset the current element to the beginning");
@@ -101,8 +96,19 @@ public class LinkedSequenceDriver {
 			System.out.println("The error is" + e.getMessage());
 		}
 		System.out.println("-------------------------");
-		System.out.println("Testing concatenation by creating seq5 from seq1 and seq2");
-		LinkedSequence<String> seq5 = LinkedSequence.concatenaton(seq1,seq2);
+		System.out.println("Testing concatenaton by creating seq5 from seq6 and seq7");
+		LinkedSequence<String> seq6 = new LinkedSequence<String>();
+		seq6.addAfter("pip");
+		seq6.addAfter("npm");
+		LinkedSequence<String> seq7 = new LinkedSequence<String>();
+		seq7.addBefore("sudo");
+		seq7.addBefore("gcc");
+		System.out.println("This is sequence 6");
+		System.out.println(seq6);
+		System.out.println("This is sequence 7");
+		System.out.println(seq7);
+		System.out.println("Calling concatenaton on seq5");
+		LinkedSequence<String> seq5 = LinkedSequence.concatenaton(seq6,seq7);
 		System.out.println("Success");
 		System.out.println("This is sequence 5");
 		System.out.println(seq5);
@@ -115,7 +121,18 @@ public class LinkedSequenceDriver {
 		System.out.println(seq5);
 		System.out.println("What is the size of seq5" + seq5.size());
 		System.out.println("-------------------------");
-		System.out.println("The end");
+		System.out.println("Testing removeCurrent method on seq1");
+		System.out.println("This is seq1");
+		System.out.println(seq1);
+		System.out.println("This is current node of seq1");
+		System.out.println(seq1.getCurrent());
+		System.out.println("Calling Remove Current on seq1");
+		seq1.removeCurrent();
+		System.out.println("Success");
+		System.out.println("This is seq1");
+		System.out.println(seq1);
+		System.out.println("-------------------------");
+		System.out.println("The end of driver");
 		
 	}
 

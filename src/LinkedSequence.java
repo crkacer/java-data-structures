@@ -34,6 +34,7 @@ public class LinkedSequence<T> extends java.lang.Object implements java.lang.Clo
 			while(tmp != null) {
 				if(tmp.getNode() == null) {
 					tmp.setNode(seq.getHead());
+					return;
 				}
 				tmp = tmp.getNode();
 			}
@@ -81,8 +82,9 @@ public class LinkedSequence<T> extends java.lang.Object implements java.lang.Clo
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public LinkedSequence<T> clone() throws CloneNotSupportedException {
-		return this.clone();
+		return (LinkedSequence<T>)super.clone();
 	}
 	
 	
@@ -93,11 +95,11 @@ public class LinkedSequence<T> extends java.lang.Object implements java.lang.Clo
 			while(tmp != null) {
 				if(tmp.getNode() == null) {
 					tmp.setNode(s2.getHead());
+					break;
 				}
 				tmp = tmp.getNode();
 			}
 			return s1;
-			
 		}else {
 			throw new java.lang.NullPointerException("One of the sequence is empty");
 		}
