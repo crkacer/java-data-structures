@@ -25,17 +25,17 @@ public class TestTiming {
 	
 	System.out.println("******** Test Fact ********");
 	
-	for (int i = 1000; i<= 64000; i *= 2) {
-	    // create big integer number bign
-	    BigInteger bign = BigInteger.valueOf((long) i);
-	    
-	 // counting the run-time   
-	    timer.start();
-	    tm.fact(bign);
-	    System.out.print("n = " + i + " : "  +" ");
-	    timer.stop();
-	    System.out.println(timer.toString());
-	}
+		for (int i = 1000; i<= 64000; i *= 2) {
+		    // create big integer number bign
+		    BigInteger bign = BigInteger.valueOf((long) i);
+		    
+		 // counting the run-time   
+		    timer.start();
+		    tm.fact(bign);
+		    System.out.print("n = " + i + " : "  +" ");
+		    timer.stop();
+		    System.out.println(timer.toString());
+		}
     }
     
     public static void testGyro() {
